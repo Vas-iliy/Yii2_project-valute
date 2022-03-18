@@ -1,11 +1,11 @@
 <?php
 
-namespace backend\controllers\auth;
+namespace app\controllers\auth;
 
-use core\forms\auth\LoginForm;
-use core\forms\auth\SignupForm;
-use core\services\auth\AuthService;
-use core\services\auth\TokenService;
+use app\core\forms\auth\LoginForm;
+use app\core\forms\auth\SignupForm;
+use app\core\services\auth\AuthService;
+use app\core\services\auth\TokenService;
 use Yii;
 use yii\helpers\Url;
 use yii\rest\Controller;

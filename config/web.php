@@ -26,9 +26,6 @@ $config = [
             'enableSession' => false,
             'loginUrl' => 'login'
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
@@ -49,13 +46,14 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                'GET ' => 'site/index',
+                '' => 'site/index',
+                'signup' => 'auth/auth/signup',
+                'login' => 'auth/auth/login',
                 'GET refresh' => 'auth/auth/refresh-token'
             ],
         ],
-
     ],
-    /*'as authenticator' => [
+    'as authenticator' => [
         'class' => '\yii\filters\auth\CompositeAuth',
         'except' => ['auth/auth/signup', 'auth/auth/login'],
         'authMethods' => [
@@ -71,7 +69,7 @@ $config = [
                 'roles' => ['@'],
             ],
         ],
-    ],*/
+    ],
     'params' => $params,
 ];
 

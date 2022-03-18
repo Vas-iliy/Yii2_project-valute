@@ -1,8 +1,7 @@
 <?php
 
-namespace core\forms\auth;
+namespace app\core\forms\auth;
 
-use Yii;
 use yii\base\Model;
 
 class SignupForm extends Model
@@ -24,7 +23,7 @@ class SignupForm extends Model
             ['email', 'string', 'max' => 255],
 
             ['password', 'required'],
-            ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['password', 'string'],
         ];
     }
 }

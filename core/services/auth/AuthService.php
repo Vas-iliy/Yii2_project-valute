@@ -1,13 +1,13 @@
 <?php
 
-namespace core\services\auth;
+namespace app\core\services\auth;
 
-use core\entities\user\Token;
-use core\repositories\TokenRepository;
-use core\repositories\UserRepository;
-use core\entities\user\User;
-use core\forms\auth\LoginForm;
-use core\forms\auth\SignupForm;
+use app\core\entities\user\Token;
+use app\core\repositories\TokenRepository;
+use app\core\repositories\UserRepository;
+use app\core\entities\user\User;
+use app\core\forms\auth\LoginForm;
+use app\core\forms\auth\SignupForm;
 
 class AuthService
 {
@@ -33,6 +33,7 @@ class AuthService
         $user = $this->users->getBy(['username' => $form->username]);
         $user->validatePassword($form->password);
         $token = Token::generateToken($user['id']);
-        return $this->tokens->save($token);
+        $this->tokens->save($token);
+        return $token;
     }
 }

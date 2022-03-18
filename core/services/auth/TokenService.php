@@ -1,8 +1,8 @@
 <?php
 
-namespace core\services\auth;
+namespace app\core\services\auth;
 
-use core\repositories\TokenRepository;
+use app\core\repositories\TokenRepository;
 
 class TokenService
 {

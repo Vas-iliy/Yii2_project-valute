@@ -1,6 +1,6 @@
 <?php
 
-namespace core\entities\user;
+namespace app\core\entities\user;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -52,7 +52,10 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    public static function findIdentity($id){}
+    public static function findIdentity($id)
+    {
+        return self::findOne($id);
+    }
 
     public static function findIdentityByAccessToken($token, $type = null)
     {

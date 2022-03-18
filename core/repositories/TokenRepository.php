@@ -1,9 +1,8 @@
 <?php
 
-namespace core\repositories;
+namespace app\core\repositories;
 
-use core\entities\user\Token;
-use yii\web\NotFoundHttpException;
+use app\core\entities\user\Token;
 
 class TokenRepository
 {

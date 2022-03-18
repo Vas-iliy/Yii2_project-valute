@@ -1,6 +1,6 @@
 <?php
 
-namespace core\entities\user;
+namespace app\core\entities\user;
 
 use yii\db\ActiveRecord;
 
@@ -8,7 +8,7 @@ class Token extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'user_tokens';
+        return '{{%user_tokens}}';
     }
 
     public static function generateToken($id)
