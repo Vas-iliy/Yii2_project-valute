@@ -15,7 +15,7 @@ class UserRepository
 
     public function getBy($condition)
     {
-        if (!$user = User::find()->andWhere(['status' => User::STATUS_ACTIVE])->andWhere($condition)->limit(1)->one()) {
+        if (!$user = User::find()->andWhere($condition)->limit(1)->one()) {
             throw new NotFoundHttpException('User not found');
         }
         return $user;
@@ -30,7 +30,7 @@ class UserRepository
 
     public function getUser($user)
     {
-        if (!$user) throw new NotFoundHttpException('User not found');
+        if (!$user) throw new \DomainException('User not found');
         return $user;
     }
 }

@@ -49,7 +49,8 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                'GET ' => 'site/index'
+                'GET ' => 'site/index',
+                'GET refresh' => 'auth/auth/refresh-token'
             ],
         ],
 

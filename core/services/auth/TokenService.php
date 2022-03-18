@@ -15,9 +15,10 @@ class TokenService
 
     public function editSuccessToken($refresh)
     {
-        if ($tokens = $this->tokens->get($refresh)) {
-            $tokens->editAccessToken();
-            return $tokens;
+        if ($token = $this->tokens->get($refresh)) {
+            $token->editAccessToken();
+            $this->tokens->save($token);
+            return $token;
         }
         return false;
     }
