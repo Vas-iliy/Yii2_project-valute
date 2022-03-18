@@ -13,24 +13,24 @@ $config = [
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'BDoVRFyOnwVE0ehNuPgK5fNGTL_tomLm',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'core\entities\user\User',
+            'enableAutoLogin' => false,
+            'enableSession' => false,
+            'loginUrl' => 'login'
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure transport
-            // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [
@@ -43,15 +43,34 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                'GET ' => 'site/index'
             ],
         ],
-        */
+
     ],
+    /*'as authenticator' => [
+        'class' => '\yii\filters\auth\CompositeAuth',
+        'except' => ['auth/auth/signup', 'auth/auth/login'],
+        'authMethods' => [
+            ['class' => 'yii\filters\auth\HttpBearerAuth'],
+        ]
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'except' => ['auth/auth/signup', 'auth/auth/login'],
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
+    ],*/
     'params' => $params,
 ];
 
