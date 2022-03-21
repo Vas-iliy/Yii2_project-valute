@@ -13,15 +13,17 @@ $config = [
     ],
     'components' => [
         'request' => [
+            'enableCookieValidation' => false,
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
         ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
+        'response' => [
+            'format' => \yii\web\Response::FORMAT_XML
         ],
         'user' => [
-            'identityClass' => 'core\entities\user\User',
+            'identityClass' => 'app\core\entities\user\User',
             'enableAutoLogin' => false,
             'enableSession' => false,
             'loginUrl' => 'login'

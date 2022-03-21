@@ -3,16 +3,14 @@
 namespace app\controllers;
 
 use yii\rest\Controller;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
-        return 'home';
+        \Yii::$app->response->format = Response::FORMAT_XML;
+        $items = ['one', 'two', 'three' => ['a', 'b', 'c']];
+        return $items;
     }
 }
